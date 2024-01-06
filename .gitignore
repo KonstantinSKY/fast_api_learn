@@ -4,6 +4,9 @@ node_modules
 security.js
 
 
+__pycache__
+.gitignore
+
 # local env files
 .env.local
 .env.*.local
