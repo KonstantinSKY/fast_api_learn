@@ -27,7 +27,7 @@ def rename_migration_file(file_path=''):
 
     #
     # Create the new filename
-    new_file_name = f"{formatted_time}_{old_name}.py"
+    new_file_name = f"{formatted_time}_{old_name}"
     # print("New file name", new_file_name)
     # # Rename the file
     os.rename(file_path, os.path.join(os.path.dirname(file_path), new_file_name))
