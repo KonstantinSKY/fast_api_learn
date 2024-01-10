@@ -39,6 +39,7 @@ def import_app_models():
         models_module = f"{app}.models"
         try:
             import_module(models_module)
+            print(f"App models found: {models_module}")
 
         except ModuleNotFoundError:
-            print(f"App Model for models not found: {app}")
+            print(f"App models not found: {models_module}")
