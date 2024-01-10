@@ -1,4 +1,5 @@
 APPS = [
+    "landing",
     "auth",
     "operation"
 ]
