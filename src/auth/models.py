@@ -15,7 +15,7 @@ class Role(Base):
     __tablename__ = 'role'
     id: Mapped[int] = MC(Integer, primary_key=True)
     name: Mapped[str] = MC(String, nullable=False)
-    permissions: Mapped[JSON] = MC(JSON)
+    permissions: Mapped[JSON] = MC(JSON, nullable=True)
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
