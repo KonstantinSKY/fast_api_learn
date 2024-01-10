@@ -10,3 +10,5 @@ DB_USER = os.environ.get("DB_USER")
 DB_PASS = os.environ.get("DB_PASS")
 
 SECRET_AUTH_TOKEN = os.environ.get("SECRET_AUTH")
+SECRET_RESET_TOKEN = os.environ.get("SECRET_RESET_PASSW")
+SECRET_VERIFICATION_TOKEN = os.environ.get("SECRET_VERIFICATION_AUTH")
