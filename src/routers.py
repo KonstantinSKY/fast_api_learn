@@ -2,16 +2,18 @@ from importlib import import_module
 from fastapi import APIRouter
 from setting import APPS
 
-api_router = APIRouter()
+routers = APIRouter()
 for app in APPS:
+    app_router_module = f"{app}.router"
     try:
-        router_module = import_module(app)
-        router = getattr(router_module, 'router', None)
-        if router:
-            api_router.include_router(router.router)
+        router_module = import_module(app_router_module)
+        if hasattr(router_module, 'router'):
+            app_router = getattr(router_module, 'router')
+            routers.include_router(app_router)
+            # print(f"App Router included from App module: {app_router_module}")
         else:
-            print(f"Router not found in App module {router}")
+            print(f"Router not found in App module {app_router_module}")
 
     except ModuleNotFoundError:
-        print(f"App Model for Router not found: {app}")
+        print(f"App Router not found: {app_router_module}")
 
