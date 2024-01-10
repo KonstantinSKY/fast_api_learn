@@ -2,19 +2,21 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
+# ## added
 import os
 from sys import path
+
 path.append(os.path.join(path[0], 'src'))
 
 from database import metadata, alembic_config_set_sections, import_app_models
 
 import_app_models()  # Import all models
 
+### end of added
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-alembic_config_set_sections(config)  # setting alembic sections
+alembic_config_set_sections(config)  # ## added setting alembic sections
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
