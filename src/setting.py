@@ -1,0 +1,4 @@
+APPS = [
+    "auth",
+    "operation"
+]
