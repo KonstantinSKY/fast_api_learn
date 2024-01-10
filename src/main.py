@@ -5,7 +5,7 @@ from typing import List, Optional
 from fastapi import FastAPI, Depends
 from fastapi_users import FastAPIUsers
 from pydantic import BaseModel, Field
-from routers import api_router
+from routers import routers
 
 from auth.config import auth_backend, fastapi_users
 from auth.models import User
@@ -16,7 +16,7 @@ app = FastAPI(
     title="Learning App"
 )
 
-app.include_router(api_router)
+app.include_router(routers)
 
 # fastapi_users = FastAPIUsers[User, int](
 #     get_user_manager,
@@ -45,10 +45,6 @@ app.include_router(api_router)
 # #         content=jsonable_encoder({"detail": exc.errors()}),
 # #     )
 # #
-#
-# @app.get("/")
-# def get_hello():
-#     return "Hello World!"
 #
 #
 # f_users = [
