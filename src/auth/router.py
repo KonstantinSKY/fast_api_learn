@@ -4,14 +4,18 @@ from auth.schemas import UserRead, UserCreate
 
 router = APIRouter()
 
+PREFIX = "/auth"
+TAGS = ["Auth"]
+
+
 router.include_router(
     fastapi_users.get_auth_router(auth_backend),
-    prefix="/auth",
-    tags=["Auth"],
+    prefix=PREFIX,
+    tags=TAGS,
 )
 
 router.include_router(
     fastapi_users.get_register_router(UserRead, UserCreate),
-    prefix="/auth",
-    tags=["Auth"],
+    prefix=PREFIX,
+    tags=TAGS,
 )
